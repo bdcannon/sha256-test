@@ -5,18 +5,19 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-var message = "This is a test message!";
+var secret = "shhh...";
 
 function promptForSecret(){
-  rl.write('Enter a secret to hash the messge');
+  rl.write('Enter a message to hash: ');
 }
 
-rl.on('line', function(secret){
-var hash = crypto.createHmac('sha256', secret)
+rl.on('line', function(message){
+  var hash = crypto.createHmac('sha256', secret)
                  .update(message)
                  .digest('hex');
-
+  console.log(hash);
+  promptForSecret();
 });
 
-console.log('Message to hash is ' + message);
+console.log('The current secret is ' + secret);
 promptForSecret();
