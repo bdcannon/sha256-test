@@ -5,7 +5,7 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-var secret = "shhh...";
+var secret = "secret";
 
 function promptForSecret(){
   rl.write('Enter a message to hash: ');
